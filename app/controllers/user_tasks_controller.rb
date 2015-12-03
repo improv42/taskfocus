@@ -1,10 +1,10 @@
 class UserTasksController < ApplicationController
   before_action :set_user_task, only: [:show, :edit, :update, :destroy]
+  before_action :all_tasks, only: [:index, :create, :update, :destroy]
 
   # GET /user_tasks
   # GET /user_tasks.json
   def index
-    @user_tasks = UserTask.all
   end
 
   # GET /user_tasks/1
@@ -29,9 +29,13 @@ class UserTasksController < ApplicationController
     respond_to do |format|
       if @user_task.save
         format.html { redirect_to @user_task, notice: 'User task was successfully created.' }
+        # looks for a partial called the same thing as the name of the method
+        format.js {}
         format.json { render :show, status: :created, location: @user_task }
       else
         format.html { render :new }
+        # looks for a partial with the name 'new'
+        format.js { render :new }
         format.json { render json: @user_task.errors, status: :unprocessable_entity }
       end
     end
@@ -62,6 +66,10 @@ class UserTasksController < ApplicationController
   end
 
   private
+    # Get all tasks before any CRUD action
+    def all_tasks
+      @user_tasks = UserTask.all
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_user_task
       @user_task = UserTask.find(params[:id])
