@@ -2,4 +2,5 @@
   <%= user_task.description %> -
   <%= user_task.due %> -
   <%= link_to fa_icon('pencil', text: 'Edit'), edit_user_task_path(user_task), remote: true, class: "btn btn-xs btn-primary" %>
+  <%= link_to fa_icon('trash-o', text: 'Delete'), user_task, remote: true, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-xs btn-danger" %>
 </li>
