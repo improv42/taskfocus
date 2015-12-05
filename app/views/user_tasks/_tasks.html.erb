@@ -1,4 +1,5 @@
-    <div id="tasks" >
-        <%= render @user_tasks %>
-        <%= will_paginate @user_tasks, :params => { :action => "index" } %>
-    </div>
+<div id="tasks" >
+  <h3>Things To Do</h3>
+  <%= render @user_tasks %>
+  <%= will_paginate @user_tasks, :params => { :action => "index" } , class: "apple_pagination" %>
+</div>
