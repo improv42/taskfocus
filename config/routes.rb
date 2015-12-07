@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/signout" => "sessions#destroy", as: :signout
   get "/signin" => 'sessions#new', as: :signin
 
+  # Change the url to show just 'tasks' added (path: 'tasks')
   resources :user_tasks, path: 'tasks'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

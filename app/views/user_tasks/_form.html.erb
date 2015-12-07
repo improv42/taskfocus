@@ -1,12 +1,14 @@
 <%= simple_form_for(@user_task, remote: true) do |f| %>
   <%= f.error_notification %>
+  <h3>New Task</h3>
+  <div class="well">
+    <div class="form-inputs">
+      <%= f.input :description, placeholder: 'Thing you want to get done' %>
+      <%= f.input :due, as: :string, placeholder: 'Today?' %>
+    </div>
 
-  <div class="form-inputs">
-    <%= f.input :description, placeholder: 'Thing you want to get done' %>
-    <%= f.input :due, as: :string, placeholder: 'Today?' %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
   </div>
 <% end %>
