@@ -1,4 +1,6 @@
-# Task Focus - a to-do web app using Rails, jQuery, and AJAX.
+# Task Focus 
+
+## A to-do web app using Rails, jQuery, and AJAX.
 
 User Accounts:
   * Sign in with Facebook
